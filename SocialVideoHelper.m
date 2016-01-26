@@ -264,6 +264,8 @@
             if ([urlResponse statusCode] == 200){
                 NSLog(@"Twitter upload success !");
                 [SocialVideoHelper uploadSuccessWithCompletion:completion];
+            } else {
+                [SocialVideoHelper uploadError:[NSError errorWithDomain:@"SocialVideoHelper" code:0 userInfo:@{NSLocalizedDescriptionKey : @"Twitter upload failure"}] withCompletion:completion];
             }
         }
     }];
